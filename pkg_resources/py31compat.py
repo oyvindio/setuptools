@@ -3,9 +3,9 @@ import errno
 import sys
 
 
-def _makedirs_31(path, exist_ok=False):
+def _makedirs_31(path, exist_ok=False, mode=0o777):
     try:
-        os.makedirs(path)
+        os.makedirs(path, mode)
     except OSError as exc:
         if not exist_ok or exc.errno != errno.EEXIST:
             raise
